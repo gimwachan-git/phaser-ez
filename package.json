@@ -1,0 +1,65 @@
+{
+  "name": "phaser-ez",
+  "version": "0.0.1",
+  "type": "module",
+  "author": {
+    "name": "Gimwa Chan",
+    "email": "gimwachan1993@gmail.com"
+  },
+  "description": "A streamlined library for Phaser3 game development.",
+  "keywords": [
+    "phaser",
+    "game-development",
+    "phaser3",
+    "html5-games",
+    "library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gimwachan-git/phaser-ez.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gimwachan-git/phaser-ez/issues"
+  },
+  "homepage": "https://github.com/gimwachan-git/phaser-ez#readme",
+  "license": "MIT",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/es/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/es/index.js",
+      "require": "./dist/cjs/index.cjs"
+    },
+    "./Phaser": {
+      "import": "./dist/es/Phaser.js",
+      "require": "./dist/cjs/Phaser.cjs"
+    },
+    "./utils": {
+      "import": "./dist/es/utils.js",
+      "require": "./dist/cjs/utils.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/core/index.d.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.1"
+  },
+  "dependencies": {
+    "phaser": "^3.87.0"
+  },
+  "peerDependencies": {
+    "phaser": "^3.87.0"
+  },
+  "peerDependenciesMeta": {
+    "phaser": {
+      "optional": true
+    }
+  }
+}
