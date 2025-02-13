@@ -207,6 +207,9 @@ export default function loadResource(scene, allAssets, options = null) {
   if (assets.length > 0) {
     console.log('\n----------------------------------------')
     console.log(`%cScene ${scene.scene.key} Loading assets:`, `font-weight: bold; color: #60c6d2;`)
+    if (options) {
+      console.log('options:', options)
+    }
     console.log('assets keys: ', assets)
     console.log('----------------------------------------\n')
   } else {
