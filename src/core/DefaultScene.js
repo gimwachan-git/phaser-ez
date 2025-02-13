@@ -13,6 +13,10 @@ export default class DefaultScene extends Phaser.Scene {
     super(key)
   }
 
+  get loadOption() {
+    return this.constructor.loadOption
+  }
+
   get soundsContext() {
     return this.constructor.soundsContext;
   }
@@ -76,7 +80,7 @@ export default class DefaultScene extends Phaser.Scene {
     // Object.keys(sounds).length !== 0 && console.log("sounds >> ", sounds);
     // Object.keys(images).length !== 0 && console.log("images >> ", images);
     // Object.keys(videos).length !== 0 && console.log("videos >> ", videos);
-    loadResource(this, Object.assign({}, sounds, images, videos))
+    loadResource(this, Object.assign({}, sounds, images, videos), this.loadOption)
     // console.log('----------------------------------------\n')
   }
 
