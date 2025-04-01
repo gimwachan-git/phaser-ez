@@ -31,13 +31,6 @@ const Main = ({
   let currentScene = null;
 
   /**
-   * 各シーンのロード状態を追跡するマップ。
-   * キーはシーン名（拡張子なし）、値はロード中かどうかのブール値。
-   * @type {Map<string, boolean>}
-   */
-  const scenesStatus = new Map(Object.keys(scenes).map(sceneKey => [getFileNameWithoutExtension(sceneKey), false]))
-
-  /**
    * Phaser ゲームの基本設定。提供された設定とデフォルト設定をマージします。
    * @type {Object}
    */
@@ -46,6 +39,18 @@ const Main = ({
     autoStart: false,
     scene: [Preloader, ...Object.values(scenes)],
   }
+
+  /**
+   * 各シーンのロード状態を追跡するマップ。
+   * キーはシーン名（拡張子なし）、値はロード中かどうかのブール値。
+   * @type {Map<string, boolean>}
+   */
+  const scenesStatus = new Map()
+  scenesStatus.set('Preloader', true)
+  Object.keys(scenes).map(sceneKey => {
+    const sceneName = getFileNameWithoutExtension(sceneKey)
+    scenesStatus.set(sceneName, false)
+  })
 
   // Phaser ゲームインスタンスを作成
   /**

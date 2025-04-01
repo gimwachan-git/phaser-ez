@@ -7,6 +7,17 @@ import Phaser from 'phaser';
  * @class
  * @extends Scene
  * @classdesc Base class for all scenes
+ * @status 
+ * Phaser.Scenes.PENDING, or 0
+ * Phaser.Scenes.INIT, or 1
+ * Phaser.Scenes.START, or 2
+ * Phaser.Scenes.LOADING, or 3
+ * Phaser.Scenes.CREATING, or 4
+ * Phaser.Scenes.RUNNING, or 5
+ * Phaser.Scenes.PAUSED, or 6
+ * Phaser.Scenes.SLEEPING, or 7
+ * Phaser.Scenes.SHUTDOWN, or 8
+ * Phaser.Scenes.DESTROYED, or 9
  */
 export default class DefaultScene extends Phaser.Scene {
   constructor(key) {

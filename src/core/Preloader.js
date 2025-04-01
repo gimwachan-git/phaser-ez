@@ -169,10 +169,6 @@ export default class Preloader extends DefaultScene {
       sceneKey: this.scene.key,
       isLoading: true
     })
-    EventBus.emit('scene-loading', {
-      sceneKey: this.nextSceneKey,
-      isLoading: true
-    })
     //  Load the assets for the game - Replace with your own assets
     // this.load.setPath('assets');
 

@@ -1,6 +1,6 @@
 {
   "name": "phaser-ez",
-  "version": "0.0.212",
+  "version": "0.0.213",
   "type": "module",
   "author": {
     "name": "Gimwa Chan",
@@ -45,6 +45,7 @@
   "types": "./dist/core/index.d.ts",
   "scripts": {
     "dev": "vite",
+    "watch": "vite build --watch",
     "build": "vite build",
     "preview": "vite preview"
   },
