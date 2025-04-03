@@ -25,6 +25,9 @@ export default class Preloader extends DefaultScene {
    * @static
    */
   static nextSceneKey = 'Main';
+  static config = {
+    autoStart: true
+  }
 
   /**
    * コンストラクタ。共通のアセットをマッチングしてロードします。
@@ -71,7 +74,13 @@ export default class Preloader extends DefaultScene {
       // console.log("this.videosContext >> ", this.constructor.videosContext);
     }
   }
-
+  /**
+   * Preloaderシーンの設定を取得します。
+   * @returns {Object} シーンの設定。
+   */
+  get config() {
+    return this.constructor.config;
+  }
   /**
    * 次のシーンのキーを設定します。
    * @param {string} value - 次のシーンのキー。
@@ -190,6 +199,12 @@ export default class Preloader extends DefaultScene {
 
     //  Move to the ID000. You could also swap this for a Scene Transition, such as a camera fade.
     super.create()
+    if (this.config.autoStart) {
+      this.startNextScene()
+    }
+  }
+
+  startNextScene() {
     DefaultScene.start(this, this.nextSceneKey)
   }
 }
