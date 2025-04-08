@@ -199,8 +199,13 @@ export default class Preloader extends DefaultScene {
 
     //  Move to the ID000. You could also swap this for a Scene Transition, such as a camera fade.
     super.create()
+
     if (this.config.autoStart) {
       this.startNextScene()
+    } else {
+      EventBus.on('start-next-scene', () => {
+        this.startNextScene()
+      })
     }
   }
 
