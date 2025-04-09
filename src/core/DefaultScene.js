@@ -116,12 +116,6 @@ export default class DefaultScene extends Phaser.Scene {
     })
     scene.time.removeAllEvents()
 
-    // dispose scene
-    if (scene.dispose) {
-      console.log(`%cScene ${scene.scene.key} dispose`, 'font-weight: bold; color: red;')
-      scene.dispose()
-    }
-
     // If scene is not running, launch it
     const status = scene.scene.getStatus(sceneKey)
     if (status === 1) {
@@ -135,7 +129,7 @@ export default class DefaultScene extends Phaser.Scene {
     const isLoading = nextScene.load.isLoading()
 
     if (isLoading || status === 1) {
-      // console.log(`%cScene ${sceneKey} is loading`, 'font-weight: bold; color: orange;')
+      console.log(`%cScene ${sceneKey} is loading`, 'font-weight: bold; color: orange;')
       EventBus.emit('scene-loading', {
         sceneKey: sceneKey,
         isLoading: true
@@ -149,13 +143,23 @@ export default class DefaultScene extends Phaser.Scene {
           sceneKey: sceneKey,
           isLoading: false
         })
+        // dispose scene
+        if (scene.dispose) {
+          console.log(`%cScene ${scene.scene.key} dispose`, 'font-weight: bold; color: red;')
+          scene.dispose()
+        }
       })
     } else {
-      // console.log(`%cScene ${sceneKey} is ready`, 'font-weight: bold; color: green;')
+      console.log(`%cScene ${sceneKey} is ready`, 'font-weight: bold; color: green;')
       EventBus.emit('scene-start', {
         scene: scene,
         sceneKey: sceneKey
       })
+      // dispose scene
+      if (scene.dispose) {
+        console.log(`%cScene ${scene.scene.key} dispose`, 'font-weight: bold; color: red;')
+        scene.dispose()
+      }      
     }
 
   }
