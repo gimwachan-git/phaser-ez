@@ -24,6 +24,10 @@ export default class DefaultScene extends Phaser.Scene {
     super(key)
   }
 
+  get persistentSounds() {
+    return this.constructor.persistentSounds
+  }
+
   get loadOption() {
     return this.constructor.loadOption
   }
@@ -109,11 +113,11 @@ export default class DefaultScene extends Phaser.Scene {
     console.log(`%cScene ${sceneKey} start`, 'font-weight: bold; color: green;')
     const nextScene = scene.scene.get(sceneKey)
 
-    // Stop all sounds except bgm
+    // Stop all sounds except persistent sounds
     scene.sound.forEachActiveSound(function (sound) {
-      if (sound.key === 'bgm') return
-      sound.stop()
-    })
+      if (scene.persistentSounds.includes(sound.key)) return;
+      sound.stop();
+    });
     scene.time.removeAllEvents()
 
     // If scene is not running, launch it
