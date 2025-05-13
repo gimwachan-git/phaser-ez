@@ -51,8 +51,10 @@ export default class DefaultScene extends Phaser.Scene {
   init() {}
 
   preload() {
-    this.scene.load.setBaseURL(this.sceneBaseURL)
-
+    if (this.sceneBaseURL){
+      this.load.setBaseURL(this.sceneBaseURL)
+      console.log(`%cScene ${this.scene.key} baseURL: ${this.sceneBaseURL}`, 'font-weight: bold; color: green;')  
+    }
     const sceneKey = this.scene.key
     const sceneKeyPath = `/${sceneKey}/`
 
