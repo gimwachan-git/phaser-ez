@@ -44,9 +44,15 @@ export default class DefaultScene extends Phaser.Scene {
     return this.constructor.videosContext;
   }
 
+  get sceneBaseURL() {
+    return this.constructor.sceneBaseURL
+  }
+
   init() {}
 
   preload() {
+    this.scene.load.setBaseURL(this.sceneBaseURL)
+
     const sceneKey = this.scene.key
     const sceneKeyPath = `/${sceneKey}/`
 
