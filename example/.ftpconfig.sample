@@ -1,0 +1,7 @@
+{
+  "FTP_SERVER": "xxx.pj.pivot.jp",
+  "FTP_USER": "xxx",
+  "FTP_PASS": "xxx",
+  "remoteDirectory": "/home"
+  "localDirectory": "dist"
+}
