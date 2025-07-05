@@ -1,0 +1,19 @@
+{
+  "name": "vanilla-phaser-ez-template",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --mode development --host",
+    "build": "vite build --mode production",
+    "preview": "vite preview --host",
+    "start": "npm run build && npm run preview --host"
+  },
+  "dependencies": {
+    "phaser": "^3.87.0",
+    "phaser-ez": "^0.0.218"
+  },
+  "devDependencies": {
+    "vite": "^6.0.3"
+  }
+}
